@@ -1,0 +1,7 @@
+{
+  "name": "viajes-admin-front-ionic",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular-standalone"
+}
