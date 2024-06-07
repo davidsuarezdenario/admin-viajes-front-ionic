@@ -1,0 +1,28 @@
+<app-header-main></app-header-main>
+
+<ion-content [fullscreen]="true">
+  <ion-header collapse="condense">
+    <ion-toolbar>
+      <ion-title size="large">Markup</ion-title>
+    </ion-toolbar>
+  </ion-header>
+
+  <!-- Aquí va el contenido del componente, como los selectores y otros elementos -->
+  <!-- Por ejemplo, podrías agregar los selectores que creamos anteriormente -->
+  <ion-item>
+    <ion-label>Tipo de Markup</ion-label>
+    <ion-select [(ngModel)]="selectedMarkupType" (ionChange)="updateFields()">
+      <ion-select-option value="vuelos">Vuelos</ion-select-option>
+      <ion-select-option value="hoteles">Hoteles</ion-select-option>
+    </ion-select>
+  </ion-item>
+
+  <!-- Selector de Campos Configurables -->
+  <ion-item *ngFor="let field of configurableFields">
+    <ion-label>{{ field }}</ion-label>
+    <ion-input type="text" [(ngModel)]="formData[field]"></ion-input>
+  </ion-item>
+
+  <!-- Botón de Confirmar Configuración -->
+  <ion-button expand="block" (click)="saveConfiguration()">Guardar Configuración</ion-button>
+</ion-content>
