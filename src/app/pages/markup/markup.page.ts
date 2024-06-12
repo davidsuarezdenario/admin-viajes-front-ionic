@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
-import { IonContent, IonHeader, IonTitle, IonToolbar, IonButton, IonLabel, IonItem, IonSelectOption } from '@ionic/angular/standalone';
+import { IonContent, IonHeader, IonTitle, IonToolbar, IonButton, IonLabel, IonItem,IonSelect, IonSelectOption } from '@ionic/angular/standalone';
 import { HeaderMainComponent } from "../../shared/components/header-main/header-main.component";
 import { GlobalService } from "../../shared/services/global/global.service";
 
@@ -15,7 +15,7 @@ interface MarkupConfiguration {
   templateUrl: './markup.page.html',
   styleUrls: ['./markup.page.scss'],
   standalone: true,
-  imports: [IonContent, IonHeader, IonTitle, IonToolbar, IonButton, IonLabel, IonItem, IonSelectOption, CommonModule, FormsModule, HeaderMainComponent ]
+  imports: [IonContent, IonHeader, IonTitle, IonToolbar, IonButton, IonLabel, IonItem,IonSelect, IonSelectOption, CommonModule, FormsModule, HeaderMainComponent ]
 })
 export class MarkupPage implements OnInit {
 
