@@ -1,0 +1,21 @@
+<app-header-main></app-header-main>
+
+<ion-content [fullscreen]="true">
+  <ion-header collapse="condense">
+    <ion-toolbar>
+      <ion-title size="large">Comission</ion-title>
+    </ion-toolbar>
+  </ion-header>
+  <ion-item>
+    <ion-label>Tipo de Comission</ion-label>
+    <ion-select [(ngModel)]="selectedComissionType" (ionChange)="updateFields()">
+      <ion-select-option value="vuelos">Vuelos</ion-select-option>
+      <ion-select-option value="hoteles">Hoteles</ion-select-option>
+    </ion-select>
+  </ion-item>
+  <ion-item *ngFor="let field of configurableFields">
+    <ion-label>{{ field }}</ion-label>
+    <ion-input type="text" [(ngModel)]="formData[field]"></ion-input>
+  </ion-item>
+  <ion-button expand="block" (click)="saveConfiguration()">Guardar Configuración</ion-button>
+</ion-content>
