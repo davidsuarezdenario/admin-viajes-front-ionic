@@ -24,10 +24,6 @@ export class ComissionPage implements OnInit {
   formData: { [field: string]: any } = {};
 
   private configurations: { [comissionType: string]: ComissionConfiguration } = {
-    'vuelos': {
-      name: 'Vuelos',
-      fields: ['Aerolínea', 'País Destino', 'Ciudad Destino', 'País Origen', 'Ciudad Origen', 'Fecha Ida', 'Fecha Vuelta', 'Rango Fechas', 'Tarifa']
-    },
     'hoteles': {
       name: 'Hoteles',
       fields: ['País', 'Ciudad', 'Categoría', 'Rango Fechas']
