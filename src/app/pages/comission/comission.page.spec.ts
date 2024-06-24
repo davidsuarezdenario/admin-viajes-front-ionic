@@ -1,16 +1,16 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-import { MarkupPage } from './markup.page';
+import { ComissionPage } from './comission.page';
 
-describe('MarkupPage', () => {
-  let component: MarkupPage;
-  let fixture: ComponentFixture<MarkupPage>;
+describe('ComissionPage', () => {
+  let component: ComissionPage;
+  let fixture: ComponentFixture<ComissionPage>;
 
   beforeEach(() => {
     TestBed.configureTestingModule({
-      declarations: [MarkupPage],
+      declarations: [ComissionPage],
     }).compileComponents();
 
-    fixture = TestBed.createComponent(MarkupPage);
+    fixture = TestBed.createComponent(ComissionPage);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
@@ -19,7 +19,7 @@ describe('MarkupPage', () => {
     expect(component).toBeTruthy();
   });
 
-  it('should update selectedMarkupType when ion-select changes', () => {
+  it('should update selectedComissionType when ion-select changes', () => {
     const compiled = fixture.nativeElement;
     const ionSelect = compiled.querySelector('ion-select');
 
@@ -29,4 +29,4 @@ describe('MarkupPage', () => {
 
     fixture.detectChanges();
 
-    // Verificar que selectedMarkupType se actualice correctamente
+    // Verificar que selectedComissionType se actualice correctamente

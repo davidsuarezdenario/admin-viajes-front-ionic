@@ -5,29 +5,25 @@ import { IonContent, IonHeader, IonTitle, IonToolbar, IonButton, IonLabel, IonIt
 import { HeaderMainComponent } from "../../shared/components/header-main/header-main.component";
 import { GlobalService } from "../../shared/services/global/global.service";
 
-interface MarkupConfiguration {
+interface ComissionConfiguration {
   name: string;
   fields: string[]; // Lista de campos configurables
 }
 
 @Component({
-  selector: 'app-markup',
-  templateUrl: './markup.page.html',
-  styleUrls: ['./markup.page.scss'],
+  selector: 'app-comission',
+  templateUrl: './comission.page.html',
+  styleUrls: ['./comission.page.scss'],
   standalone: true,
   imports: [IonContent, IonHeader, IonTitle, IonToolbar, IonButton, IonLabel, IonItem,IonSelect, IonSelectOption, CommonModule, FormsModule, HeaderMainComponent ]
 })
-export class MarkupPage implements OnInit {
+export class ComissionPage implements OnInit {
 
-  selectedMarkupType: string = ''; // Asigna un valor inicial aquí
+  selectedComissionType: string = ''; // Asigna un valor inicial aquí
   configurableFields: string[] = [];
   formData: { [field: string]: any } = {};
 
-  private configurations: { [markupType: string]: MarkupConfiguration } = {
-    'vuelos': {
-      name: 'Vuelos',
-      fields: ['Aerolínea', 'País Destino', 'Ciudad Destino', 'País Origen', 'Ciudad Origen', 'Fecha Ida', 'Fecha Vuelta', 'Rango Fechas', 'Tarifa']
-    },
+  private configurations: { [comissionType: string]: ComissionConfiguration } = {
     'hoteles': {
       name: 'Hoteles',
       fields: ['País', 'Ciudad', 'Categoría', 'Rango Fechas']
@@ -38,7 +34,7 @@ export class MarkupPage implements OnInit {
   ) { }
 
   updateFields() {
-    this.configurableFields = this.configurations[this.selectedMarkupType].fields;
+    this.configurableFields = this.configurations[this.selectedComissionType].fields;
     // Limpiar el formData
     this.formData = {};
   }
@@ -46,7 +42,7 @@ export class MarkupPage implements OnInit {
   ngOnInit() {}
 
   ionViewDidEnter() {
-    this.globalService.titleMain = 'Markup';
+    this.globalService.titleMain = 'Comission';
   }
 
   saveConfiguration() {
