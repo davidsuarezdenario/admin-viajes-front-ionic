@@ -30,3 +30,5 @@ describe('ComissionPage', () => {
     fixture.detectChanges();
 
     // Verificar que selectedComissionType se actualice correctamente
+  });
+});

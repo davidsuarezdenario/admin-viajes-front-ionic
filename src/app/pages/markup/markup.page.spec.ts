@@ -30,3 +30,5 @@ describe('MarkupPage', () => {
     fixture.detectChanges();
 
     // Verificar que selectedMarkupType se actualice correctamente
+  });
+});
