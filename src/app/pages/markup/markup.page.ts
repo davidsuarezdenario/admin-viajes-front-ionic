@@ -24,7 +24,7 @@ interface MarkupRecord {
 })
 export class MarkupPage implements OnInit {
 
-  selectedMarkupType: string = '';
+  selectedMarkupType: string = ''; // Asigna un valor inicial aquí
   configurableFields: string[] = [];
   formData: { [field: string]: any } = {};
 
@@ -70,14 +70,17 @@ export class MarkupPage implements OnInit {
   constructor(public globalService: GlobalService) { }
 
   updateFields() {
-    this.configurableFields = this.configurations[this.selectedMarkupType].fields;
-    this.formData = {};
+    if (this.selectedMarkupType && this.configurations[this.selectedMarkupType]) {
+      this.configurableFields = this.configurations[this.selectedMarkupType].fields;
+      // Limpiar el formData
+      this.formData = {};
+    }
   }
 
   getObjectKeys(obj: { [key: string]: any }): string[] {
     return Object.keys(obj);
   }
-  
+
   ngOnInit() { }
 
   ionViewDidEnter() {
@@ -85,7 +88,22 @@ export class MarkupPage implements OnInit {
   }
 
   saveConfiguration() {
-    console.log('Datos del formulario:', this.formData);
+    // Crear un nuevo registro
+    const newRecord: MarkupRecord = {
+      id: this.exampleRecords.length + 1, // Asignar un ID único
+      type: this.selectedMarkupType,
+      data: { ...this.formData } // Copiar los datos del formulario
+    };
+
+    // Agregar el nuevo registro a la lista de registros
+    this.exampleRecords.push(newRecord);
+
+    // Limpiar el formulario y restablecer el tipo de markup seleccionado
+    this.selectedMarkupType = '';
+    this.configurableFields = [];
+    this.formData = {};
+
+    console.log('Datos del formulario guardados:', newRecord);
   }
 
 }
